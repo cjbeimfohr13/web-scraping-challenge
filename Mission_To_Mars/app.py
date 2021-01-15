@@ -1,7 +1,9 @@
 from flask import Flask, render_template
 from flask_pymongo import PyMongo
+import pymongo
 
 app = Flask(__name__)
+
 # created database mars in mongo
 conn = 'mongodb://localhost:27017'
 
