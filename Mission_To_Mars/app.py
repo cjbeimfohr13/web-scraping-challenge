@@ -3,7 +3,7 @@ from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 
-conn = 'mongodb://localhost:27017'
+conn = 'mongodb://localhost:'
 
 client = pymongo.MongoClient(conn)
 
@@ -13,6 +13,8 @@ def index():
 
 @app.route("/scrape")
 def scraper():
+    mission_to_mars.scrape()
+    return()
 
     
 if __name__ == "__main__":
