@@ -16,30 +16,31 @@
       <h1>Mission To Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
     </div>
+    <img src="{{ vacation.sloth_img }}" alt="Sloth">
 
-    <!-- Craigslist Listings -->
     <div class="row" id="latest_mars">
       <div class="col-md-12">
         <h4 class="heading">Latest Mars News</h4>
-        <small>{{listings.hood}}</small>
+        <h2>{{mars.news_title}}</h2>
+        <small>{{mars.news_p}}</small>
       </div>
     </div>
     <div class="row" id="featured">
       <div class="col-md-12">
         <h4 class="heading">Featured Mars Images</h4>
-        <small>{{listings.hood}}</small>
+        <!-- <small>{{mars.featured_image_url}}</small> -->
       </div>
     </div>
     <div class="row" id="hemispheres">
       <div class="col-md-12">
         <h4 class="heading">Mars Hemispheres</h4>
-        <small>{{listings.hood}}</small>
+        <small>{{mars.hem_image_list}}</small>
       </div>
     </div>
     <div class="row" id="facts">
       <div class="col-md-12">
         <h4 class="heading">Mars Facts</h4>
-        <small>{{listings.hood}}</small>
+        <small>{{mars.html_table}}</small>
       </div>
     </div>
 

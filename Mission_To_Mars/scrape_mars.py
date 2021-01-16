@@ -39,7 +39,7 @@ def scrape():
 
     image_html=browser.html
     image_soup= BeautifulSoup(html, 'html.parser')
-    age_url=image_soup.find("img", {"id":"96342"})
+    featured_image_url=image_soup.find("img", {"id":"96342"})
     # featured_image_url=age_url.find("src")
     # featured_image_url
 
@@ -78,11 +78,14 @@ def scrape():
         hem_images_list.append({"title":title, "image_url":hem_url})
         
     mars_dict={
-        
+        "News Title":news_title,
+        "News Paragraph":news_p,
+        "Mars Facts": html_table,
+        "hemisphere images": hem_images_list
     }
     
 
     browser.quit()
     
-    return costa_data
+    return mars_data
 
