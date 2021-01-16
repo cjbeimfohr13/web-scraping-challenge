@@ -77,7 +77,12 @@ def scrape():
         hem_image_url= downloads.find("a")["href"]
         hem_images_list.append({"title":title, "image_url":hem_url})
         
-    hem_images_list
+    mars_dict={
+        
+    }
+    
 
-    return listings
+    browser.quit()
+    
+    return costa_data
 
