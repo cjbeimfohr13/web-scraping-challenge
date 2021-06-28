@@ -65,14 +65,9 @@ def mars_facts(browser):
     mars_url="https://space-facts.com/mars/"
 
     tables = pd.read_html(mars_url)
-    tables
-
-    df = tables[0]
-    df
-    html_table = df.to_html()
-    html_table
-    html_table.replace('\n', '')
-    df.to_html('table.html')
+    tables.columns=['Description','Mars']
+    tables.set_index('Description', inplace=True)
+    return tables.to_html(classes="table table-stripped")
 
 def mars_hemisphere(browser):
 
@@ -100,16 +95,16 @@ def mars_hemisphere(browser):
     return hem_images_list
 
 
-    mars_dict={
-        "News Title":news_title,
-        "News Paragraph":news_p,
-        "Mars Facts": html_table,
-        "hemisphere images": hem_images_list
-    }
+    # mars_dict={
+    #     "News Title":news_title,
+    #     "News Paragraph":news_p,
+    #     "Mars Facts": html_table,
+    #     "hemisphere images": hem_images_list
+    # }
     
 
     
-    return mars_data
+    # return mars_data
 
 if __name__ == "__main__":
 
