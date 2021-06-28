@@ -95,16 +95,5 @@ def mars_hemisphere(browser):
     return hem_images_list
 
 
-    # mars_dict={
-    #     "News Title":news_title,
-    #     "News Paragraph":news_p,
-    #     "Mars Facts": html_table,
-    #     "hemisphere images": hem_images_list
-    # }
-    
-
-    
-    # return mars_data
-
 if __name__ == "__main__":
-
+    print(scrape_all())
