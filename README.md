@@ -1,12 +1,16 @@
 # Web Scraping Homework - Mission to Mars
 
-![mission_to_mars](Images/mission_to_mars.png)
+## Libraries Used
+BeautifulSoup
+Pandas
+Requests/Splinter
 
-## Step 1 - Scraping
+## Tools Used
+Python 
+HTML
+Jupyter Notebook
 
-Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
 
-* Create a Jupyter Notebook file called `mission_to_mars.ipynb` and use this to complete all of your scraping and analysis tasks. The following outlines what you need to scrape.
 
 ### NASA Mars News
 
@@ -59,8 +63,6 @@ hemisphere_image_urls = [
     {"title": "Syrtis Major Hemisphere", "img_url": "..."},
 ]
 ```
-
-- - -
 
 ## Step 2 - MongoDB and Flask Application
 
