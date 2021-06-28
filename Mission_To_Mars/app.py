@@ -11,15 +11,15 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
 @app.route('/')
 def home():
     
-    mars_data = mongo.db.collection.find_one()
+    mars_data = mongo.db.marsdb.find_one()
     
     return render_template("index.html", mars=mars_data)
 
 @app.route("/scrape")
 def scraper():
-    
+    mars=mongo.db.marsdb
     scrape_mars_data = scrape_mars.scrape()
-    mongo.db.collection.update({}, scrape_mars_data, upsert=True)
+    mars.update({}, scrape_mars_data, upsert=True)
     
     return redirect("/", code=302)
 

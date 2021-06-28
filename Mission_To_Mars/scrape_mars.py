@@ -9,9 +9,24 @@ def browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
     browser = Browser('chrome', **executable_path, headless=False)
 
-def scrape():
-    browser = init_browser()
-    listings = {}
+    news_title, news_paragraph = mars_news(browser)
+
+    data={
+        "news_title": news_title,
+        "news_paragraph": news_paragraph,
+        "featured_image": featured_image(browser),
+        "facts": mars_facts(),
+        "hemispheres": hemispheres(browser),
+        "last_modified": dt.datetime.now()
+    }
+
+    browser.quit()
+    return data
+
+
+def scrape_mars(browser):
+    # browser = init_browser()
+    # listings = {}
     
     url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
     browser.visit(url)
@@ -24,9 +39,10 @@ def scrape():
     print(news_title)
 
     print(news_p)
-
+    return news_title, news_p
 
     # JPL MARS SPACE IMAGES
+def mars_image(browswer):
 
     image_url="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(image_url)
@@ -42,7 +58,9 @@ def scrape():
     featured_image_url=image_soup.find("img", {"id":"96342"})
     # featured_image_url=age_url.find("src")
     # featured_image_url
+    return featured_image_url
 
+def mars_facts(browser):
     # Mars Facts
     mars_url="https://space-facts.com/mars/"
 
@@ -56,6 +74,7 @@ def scrape():
     html_table.replace('\n', '')
     df.to_html('table.html')
 
+def mars_hemisphere(browser):
 
     # Mars Hemispheres
     hem_images_list=[]
@@ -76,7 +95,11 @@ def scrape():
         downloads = hem_soup.find("div", class_="downloads")
         hem_image_url= downloads.find("a")["href"]
         hem_images_list.append({"title":title, "image_url":hem_url})
-        
+    
+    
+    return hem_images_list
+
+
     mars_dict={
         "News Title":news_title,
         "News Paragraph":news_p,
@@ -85,7 +108,8 @@ def scrape():
     }
     
 
-    browser.quit()
     
     return mars_data
+
+if __name__ == "__main__":
 
