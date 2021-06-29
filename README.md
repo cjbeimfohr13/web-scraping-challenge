@@ -4,12 +4,13 @@
 * BeautifulSoup
 * Pandas
 * Request/Splinter
-
+* Flask
 
 ## Tools Used
 * Python
 * HTML
 * Jupyter Notebook
+* MongoDB
 
 ### NASA Mars News
 
