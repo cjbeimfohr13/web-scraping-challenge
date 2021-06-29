@@ -16,12 +16,12 @@ def home():
     return render_template("index.html", mars=mars_data)
 
 @app.route("/scrape")
-def scraper():
+def scrape():
     mars=mongo.db.marsdb
-    scrape_mars_data = scrape_mars.scrape()
+    scrape_mars_data = scrape_mars.scrape_all()
     mars.update({}, scrape_mars_data, upsert=True)
     
-    return redirect("/", code=302)
+    return "scrape complete"
 
     
 if __name__ == "__main__":

@@ -1,16 +1,15 @@
 # Web Scraping Homework - Mission to Mars
 
 ## Libraries Used
-BeautifulSoup
-Pandas
-Requests/Splinter
+* BeautifulSoup
+* Pandas
+* Request/Splinter
+
 
 ## Tools Used
-Python 
-HTML
-Jupyter Notebook
-
-
+* Python
+* HTML
+* Jupyter Notebook
 
 ### NASA Mars News
 

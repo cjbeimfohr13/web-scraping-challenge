@@ -4,27 +4,26 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import os
 
-def browser():
+def scrape_all():
 
     executable_path = {'executable_path': 'chromedriver.exe'}
     browser = Browser('chrome', **executable_path, headless=False)
 
-    news_title, news_paragraph = mars_news(browser)
+    news_title, news_paragraph = scrape_news(browser)
 
     data={
         "news_title": news_title,
         "news_paragraph": news_paragraph,
-        "featured_image": featured_image(browser),
+        # "featured_image": mars_image(browser),
         "facts": mars_facts(),
-        "hemispheres": hemispheres(browser),
-        "last_modified": dt.datetime.now()
+        "hemispheres": mars_hemispheres(browser),
     }
 
     browser.quit()
     return data
 
 
-def scrape_mars(browser):
+def scrape_news(browser):
     # browser = init_browser()
     # listings = {}
     
@@ -42,7 +41,7 @@ def scrape_mars(browser):
     return news_title, news_p
 
     # JPL MARS SPACE IMAGES
-def mars_image(browswer):
+def mars_image(browser):
 
     image_url="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(image_url)
@@ -60,7 +59,7 @@ def mars_image(browswer):
     # featured_image_url
     return featured_image_url
 
-def mars_facts(browser):
+def mars_facts():
     # Mars Facts
     mars_url="https://space-facts.com/mars/"
 
